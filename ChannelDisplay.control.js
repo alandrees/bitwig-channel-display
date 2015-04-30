@@ -37,7 +37,7 @@ var icc_network = new Array();
 
 //icc_network.push(ICC.create_new_icc_network('channeldisplay8'));
 
-controllers[0] = new ChannelDisplay.ChannelDisplayGroup(ChannelDisplay.options);
+controllers[0] = new ChannelDisplay.ChannelDisplayGroupController(ChannelDisplay.options, 0, 0);
 
 /**\fn init
  *
