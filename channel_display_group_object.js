@@ -109,3 +109,22 @@ ChannelDisplay.ChannelDisplayGroupController.prototype.set_options = function(op
  */
 
 ChannelDisplay.ChannelDisplayGroupController.prototype.flush = function(){}
+
+
+/**\fn ChannelDisplay.ChannelDisplayGroupController.prototype.exit
+ *
+ * Implements the exit functionality for the object
+ *
+ * @param None
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplayGroupController.prototype.exit = function()
+{
+    for(var x = 0; x < this.options.channels; x++)
+    {
+	this.channels[x].set_parse_func = {};
+	this.channels[x].send_text("");
+    }
+}
