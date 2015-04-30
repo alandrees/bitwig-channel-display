@@ -6,3 +6,8 @@
  *
  * Dependencies:
  */
+
+ChannelDisplay = ChannelDisplay || {};
+
+ChannelDisplay.options = {'channels' : 1,
+			  'osc'      : false};
