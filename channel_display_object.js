@@ -39,3 +39,35 @@ ChannelDisplay.ChannelDisplay = function(options, parse_func, instance, midi_ins
 	this._send_data = ChannelDisplay.ChannelDisplay.prototype._send_midi;
     }
 }
+
+
+/**\fn ChannelDisplay.ChannelDisplay.prototype.send_text
+ *
+ * Parses the text 4 lines, and sends it to display
+ *
+ * @param text (string) string to send to the display
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplay.prototype.send_text = function(text)
+{
+    var lines = {1 : '',
+		 2 : '',
+		 3 : '',
+		 4 : ''};
+
+    if(typeof this.parse_func === 'function')
+    {
+	lines = this.parse_func(text);
+    }
+    else
+    {
+	lines[1] = text.substring(0, this.line_length);
+    }
+
+    for(var line in lines)
+    {
+	this._send_data(line, lines[line]);
+    }
+}
