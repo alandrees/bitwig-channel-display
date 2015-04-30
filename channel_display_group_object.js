@@ -73,3 +73,27 @@ ChannelDisplay.ChannelDisplayGroupController.prototype.init = function(banks)
 	this.channels.push(cd);
     }
 }
+
+
+/**\fn Launchpad.LaunchpadController.prototype.set_options
+ *
+ * Sets controller options
+ *
+ * @param options options with which to set (use defaults if not set)
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplayGroupController.prototype.set_options = function(options)
+{
+    this.options = { 'channels' : 1,
+		     'osc'      : false}
+
+    if(typeof options === 'object')
+    {
+	for(var option in options)
+	{
+	    this.options[option] = options[option];
+	}
+    }
+}
