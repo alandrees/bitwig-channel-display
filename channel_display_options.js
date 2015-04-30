@@ -7,7 +7,7 @@
  * Dependencies:
  */
 
-ChannelDisplay = ChannelDisplay || {};
+var ChannelDisplay = ChannelDisplay || {};
 
 ChannelDisplay.options = {'channels' : 1,
 			  'osc'      : false};
