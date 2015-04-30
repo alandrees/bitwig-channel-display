@@ -28,3 +28,48 @@ ChannelDisplay.ChannelDisplayGroupController = function(options, instance, midi_
     this.midi_instance = midi_instance;
     this.set_options(options);
 }
+
+
+/**\fn ChannelDisplay.ChannelDisplayGroupController.prototype.init
+ *
+ * Init function to be called to initialize the controller
+ *
+ * @param banks banks passed from the encapsulating object
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplayGroupController.prototype.init = function(banks)
+{
+    var self = this;
+
+    this.channels = new Array();
+
+    this.banks = {};
+
+    if(typeof banks === 'undefined')
+    {
+	this.banks.transport = host.createTransport();
+	this.banks.application = host.createApplication();
+	this.banks.trackbank = host.createMainTrackBank(this.options.channels,
+							0,
+							0);
+    }
+    else
+    {
+	this.banks = banks;
+    }
+
+    var cd = {};
+
+    for(var x = 0; x < this.options.channels; x++)
+    {
+	cd = new ChannelDisplay.ChannelDisplay(this.options, {}, x, this.midi_instance);
+
+	var track = this.banks.trackbank.getTrack(x);
+
+	track.addNameObserver(80, "", function(string){cd.send_text(string);});
+
+	this.channels.push(cd);
+    }
+}
