@@ -97,3 +97,15 @@ ChannelDisplay.ChannelDisplayGroupController.prototype.set_options = function(op
 	}
     }
 }
+
+
+/**\fn ChannelDisplay.ChannelDisplayGroupController.prototype.flush
+ *
+ * Implements the flush functionality for the object
+ *
+ * @param None
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplayGroupController.prototype.flush = function(){}
