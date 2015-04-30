@@ -71,3 +71,18 @@ ChannelDisplay.ChannelDisplay.prototype.send_text = function(text)
 	this._send_data(line, lines[line]);
     }
 }
+
+
+/**\fn ChannelDisplay.ChannelDisplay.prototype.set_parse_func
+ *
+ * Updates the text line parsing function.  I do no type checking in case you want to remove the parser.
+ *
+ * @param func (function) Function to set the line parser to
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplay.prototype.set_parse_func = function(func)
+{
+    this.parse_func = func;
+}
