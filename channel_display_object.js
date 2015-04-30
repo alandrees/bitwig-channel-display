@@ -6,3 +6,5 @@
  *
  * Dependencies:
  */
+
+var ChannelDisplay = ChannelDisplay || {};
