@@ -117,3 +117,28 @@ ChannelDisplay.ChannelDisplay.prototype._send_midi = function(line, text)
     }
 
 }
+
+
+/**\fn ChannelDisplay.ChannelDisplay.prototype._send_osc
+ *
+ * Sends the data to the controller via OSC
+ *
+ * @param line (integer) line number to output for
+ * @param text (string) string text to output
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplay.prototype._send_osc = function(line, text){ }
+
+
+/**\fn ChannelDisplay.ChannelDisplay.prototype._init_osc
+ *
+ * Initialize the OSC subsystem
+ *
+ * @param None
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplay.prototype._init_osc = function(){ }
