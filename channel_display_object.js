@@ -86,3 +86,34 @@ ChannelDisplay.ChannelDisplay.prototype.set_parse_func = function(func)
 {
     this.parse_func = func;
 }
+
+
+/**\fn ChannelDisplay.ChannelDisplay.prototype._send_midi
+ *
+ * Sends the data to the controller via MIDI
+ *
+ * @param line (integer) line number to output for
+ * @param text (string) string text to output
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplay.prototype._send_midi = function(line, text)
+{
+    if(text.length > 20){ text = text.substring(0, 20); }
+
+
+    //send the control initialization
+
+    var midi_out = host.getMidiOutPort(0);
+
+    var bytestream = new Array();
+
+    for(var i = 0; i < text.length; i++)
+    {
+	midi_out.sendMidi(0xB0,
+			  this.instance + (10 + line),
+			  text.substring(i, i + 1).charCodeAt());
+    }
+
+}
