@@ -68,7 +68,7 @@ ChannelDisplay.ChannelDisplay.prototype.send_text = function(text)
 
     for(var line in lines)
     {
-	this._send_data(line, lines[line]);
+	this._send_data(this.instance, parseInt(line), lines[line]);
     }
 }
 
