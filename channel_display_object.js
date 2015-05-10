@@ -92,13 +92,14 @@ ChannelDisplay.ChannelDisplay.prototype.set_parse_func = function(func)
  *
  * Sends the data to the controller via MIDI
  *
+ * @param instance (integer) display object instance
  * @param line (integer) line number to output for
  * @param text (string) string text to output
  *
  * @returns None
  */
 
-ChannelDisplay.ChannelDisplay.prototype._send_midi = function(line, text)
+ChannelDisplay.ChannelDisplay.prototype._send_midi = function(instance, line, text)
 {
     if(text.length > 20){ text = text.substring(0, 20); }
 
