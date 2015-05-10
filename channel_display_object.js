@@ -108,12 +108,14 @@ ChannelDisplay.ChannelDisplay.prototype._send_midi = function(instance, line, te
 
     var midi_out = host.getMidiOutPort(0);
 
-    var bytestream = new Array();
+    var i = 0;
 
-    for(var i = 0; i < text.length; i++)
+    var line_output = line << 5;
+
+    for(i = 0; i < text.length; i++)
     {
-	midi_out.sendMidi(0xB0,
-			  this.instance + (10 + line),
+	midi_out.sendMidi(0xB0 + instance,
+			  line_output + i,
 			  text.substring(i, i + 1).charCodeAt());
     }
 
