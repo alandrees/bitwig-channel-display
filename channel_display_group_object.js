@@ -125,6 +125,5 @@ ChannelDisplay.ChannelDisplayGroupController.prototype.exit = function()
     for(var x = 0; x < this.options.channels; x++)
     {
 	this.channels[x].set_parse_func = {};
-	this.channels[x].send_text("");
     }
 }
