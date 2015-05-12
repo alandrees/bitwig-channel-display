@@ -66,9 +66,22 @@ ChannelDisplay.ChannelDisplay.prototype.send_text = function(text)
 	lines[1] = text.substring(0, this.line_length);
     }
 
-    for(var line in lines)
+    if(text !== '')
     {
-	this._send_data(this.instance, parseInt(line), lines[line]);
+	var midi_out = host.getMidiOutPort(0);
+
+	midi_out.sendMidi(0xA0 + this.instance,
+			  0,
+			  0);
+
+	for(var line in lines)
+	{
+	    this._send_data(this.instance, parseInt(line), lines[line]);
+	}
+
+	midi_out.sendMidi(0xC0 + this.instance,
+			  0,
+			  0);
     }
 }
 
