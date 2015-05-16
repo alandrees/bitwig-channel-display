@@ -52,10 +52,10 @@ ChannelDisplay.ChannelDisplay = function(options, parse_func, instance, midi_ins
 
 ChannelDisplay.ChannelDisplay.prototype.send_text = function(text)
 {
-    var lines = {1 : '',
+    var lines = {0 : '',
+		 1 : '',
 		 2 : '',
-		 3 : '',
-		 4 : ''};
+		 3 : ''};
 
     if(typeof this.parse_func === 'function')
     {
