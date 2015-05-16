@@ -127,3 +127,20 @@ ChannelDisplay.ChannelDisplayGroupController.prototype.exit = function()
 	this.channels[x].set_parse_func = {};
     }
 }
+
+/**\fn ChannelDisplay.ChannelDisplayGroupController.prototype.set_parse_func
+ *
+ * Sets the parse func on a group of display controllers
+ *
+ * @param func (function) callable object to be set on each of the channel display objects
+ *
+ * @returns None
+ */
+
+ChannelDisplay.ChannelDisplayGroupController.prototype.set_parse_func = function(func)
+{
+    for(var x = 0; x < this.options.channels; x++)
+    {
+	this.channels[x].set_parse_func(func);
+    }
+}
