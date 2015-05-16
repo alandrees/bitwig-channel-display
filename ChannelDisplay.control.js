@@ -85,6 +85,7 @@ function init()
     for(var controller in controllers)
     {
 	controllers[controller].init();
+	controllers[controller].set_parse_func(parse_function);
     }
 }
 
