@@ -39,6 +39,38 @@ var icc_network = new Array();
 
 controllers[0] = new ChannelDisplay.ChannelDisplayGroupController(ChannelDisplay.options, 0, 0);
 
+
+/**\fn parse_func
+ *
+ * Parse function which returns data in the required way
+ *
+ * @param title (string) string which to parse
+ *
+ * @returns object in the required format
+ */
+
+function parse_function(title)
+{
+    var rv = {1 : '',
+	      2 : '',
+	      3 : '',
+	      4 : ''};
+
+    if(typeof title === 'string')
+    {
+	var split = title.split(';');
+
+	for(var i = 0; i < split.length; i++)
+	{
+	    rv[i] = split[i];
+	}
+    }
+
+    return rv;
+}
+
+
+
 /**\fn init
  *
  * init function entry point wrapping the controller components
