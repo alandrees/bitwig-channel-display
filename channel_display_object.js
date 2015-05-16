@@ -125,11 +125,15 @@ ChannelDisplay.ChannelDisplay.prototype._send_midi = function(instance, line, te
 
     var line_output = line << 5;
 
+    var charcode = 0;
+
     for(i = 0; i < text.length; i++)
     {
+	charcode = text.substring(i, i + 1).charCodeAt();
+
 	midi_out.sendMidi(0xB0 + instance,
 			  line_output + i,
-			  text.substring(i, i + 1).charCodeAt());
+			  charcode);
     }
 
 }
