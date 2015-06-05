@@ -68,7 +68,7 @@ ChannelDisplay.ChannelDisplayGroupController.prototype.init = function(banks)
 
 	var track = this.banks.trackbank.getTrack(x);
 
-	track.addNameObserver(80, "", function(string){cd.send_text(string);});
+	track.addNameObserver(80, "", function(cd_obj){return function(string){cd_obj.send_text(string);}}(cd));
 
 	this.channels.push(cd);
     }
