@@ -9,6 +9,6 @@
 
 var ChannelDisplay = ChannelDisplay || {};
 
-ChannelDisplay.options = {'channels'    : 1,
+ChannelDisplay.options = {'channels'    : 8,
 			  'line_length' : 20,
 			  'osc'         : false};
