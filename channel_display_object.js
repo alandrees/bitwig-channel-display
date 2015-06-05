@@ -68,7 +68,7 @@ ChannelDisplay.ChannelDisplay.prototype.send_text = function(text)
 
     if(text !== '')
     {
-	var midi_out = host.getMidiOutPort(0);
+	var midi_out = host.getMidiOutPort(this.midi_instance);
 
 	midi_out.sendMidi(0xA0 + this.instance,
 			  0,
@@ -119,7 +119,7 @@ ChannelDisplay.ChannelDisplay.prototype._send_midi = function(instance, line, te
 
     //send the control initialization
 
-    var midi_out = host.getMidiOutPort(0);
+    var midi_out = host.getMidiOutPort(this.midi_instance);
 
     var i = 0;
 
